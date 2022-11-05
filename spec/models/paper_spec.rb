@@ -17,4 +17,21 @@ describe "Paper", type: :model do
 	paper.year = 1997
 	expect(paper).to_not be_valid
   end
+  it "should not accept a paper without a year" do
+      # visit new_author_path
+      paper = Paper.new
+	paper.title = "Data Ethics"
+	paper.venue = "HPI"
+	paper.year = nil
+	expect(paper).to_not be_valid
+  end
+  it "should not accept a paper when year is not numerical" do
+      # visit new_author_path
+      paper = Paper.new
+	paper.title = "Data Ethics"
+	paper.venue = "HPI"
+	paper.year = "A"
+	expect(paper).to_not be_valid
+  end
 end
+
