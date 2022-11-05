@@ -9,4 +9,12 @@ describe "Paper", type: :model do
 	paper.year = 1997
 	expect(paper).to_not be_valid
   end
+  it "should not accept a paper without a venue" do
+      # visit new_author_path
+      paper = Paper.new
+	paper.title = "Data Ethics"
+	paper.venue = ""
+	paper.year = 1997
+	expect(paper).to_not be_valid
+  end
 end
