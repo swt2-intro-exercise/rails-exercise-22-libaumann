@@ -20,4 +20,12 @@ describe "Author", type: :model do
 	author.homepage = "http://wikipedia.org/Alan_Turing"
 	expect(author).to_not be_valid
   end
+  it "should throw an error when an author without a last name is submitted" do
+      # visit new_author_path
+      author = Author.new
+	author.first_name = "Alan"
+	author.last_name = ""
+	author.homepage = "http://wikipedia.org/Alan_Turing"
+      expect(author).to_not be_valid
+  end
 end
