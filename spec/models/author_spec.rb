@@ -12,4 +12,12 @@ describe "Author", type: :model do
       expect(author.homepage).to eq("http://wikipedia.org/Alan_Turing")
       expect(author.name).to eq("Alan Turing")
   end
+  it "should not accept an author without a last name" do
+      # visit new_author_path
+      author = Author.new
+	author.first_name = "Alan"
+	author.last_name = ""
+	author.homepage = "http://wikipedia.org/Alan_Turing"
+	expect(author).to_not be_valid
+  end
 end
