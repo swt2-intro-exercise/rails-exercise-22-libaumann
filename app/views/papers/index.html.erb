@@ -1,15 +1,42 @@
-<p style="color: green"><%= notice %></p>
-
 <h1>Papers</h1>
 
-<div id="papers">
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Venue</th>
+    <th>Year</th>
+    <th></th>
+  </tr>
+ 
   <% @papers.each do |paper| %>
-    <%= render paper %>
-    <p>
-      <%= link_to "Show this paper", paper %>
-      <%= link_to "Edit this paper", edit_paper_path(paper) %>
-    </p>
+    <tr>
+      <td><%= paper.title %></td>
+      <td><%= paper.venue %></td>
+      <td><%= paper.year %></td>
+      <p>
+      <td><%= link_to "Show this paper", paper %></td>
+      <td><%= link_to "Edit this paper", edit_paper_path(paper) %></td>
+      <td><%= link_to 'Delete this paper', paper_path(paper), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></td>
+      </p>
+    </tr>
   <% end %>
-</div>
+</table>
 
 <%= link_to "New paper", new_paper_path %>
+
+# <p style="color: green"><%= notice %></p>
+
+# <h1>Papers</h1>
+
+# <div id="papers">
+#  <% @papers.each do |paper| %>
+#    <%= render paper %>
+#    <p>
+#      <td><%= link_to "Show this paper", paper %></td>
+#      <td><%= link_to "Edit this paper", edit_paper_path(paper) %></td>
+#      <td><%= link_to 'Delete this paper', paper_path(paper), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></td>
+#    </p>
+#  <% end %>
+#</div>
+
+# <%= link_to "New paper", new_paper_path %>
