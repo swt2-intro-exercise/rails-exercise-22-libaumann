@@ -33,13 +33,13 @@ describe "Paper", type: :model do
 	paper.year = "A"
 	expect(paper).to_not be_valid
   end
-    it "should have a list of authors" do
+    it "should have an empty list of authors" do
       # visit new_author_path
       paper = Paper.new
 	paper.title = "Data Ethics"
 	paper.venue = "HPI"
 	paper.year = "1997"
-	# expect(paper.authors).to_not be_empty
+	expect(paper.authors).to eq([])
   end
 end
 
