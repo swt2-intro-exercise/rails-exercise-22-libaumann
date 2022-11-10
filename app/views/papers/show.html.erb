@@ -11,5 +11,9 @@
 
 <p>
   <strong>Authors:</strong>
-  <%= @paper.authors %>
+  <ul class="authors">
+    <%@paper.authors.each do |author| %>
+      <li><%=author.name%></li>
+    <% end %>
+  </ul>
 </p>

@@ -33,13 +33,22 @@ describe "Paper", type: :model do
 	paper.year = "A"
 	expect(paper).to_not be_valid
   end
-    it "should have an empty list of authors" do
+  it "should have an empty list of authors" do
       # visit new_author_path
       paper = Paper.new
 	paper.title = "Data Ethics"
 	paper.venue = "HPI"
 	paper.year = "1997"
 	expect(paper.authors).to eq([])
+  end
+  it "should be possible to add author" do
+      # visit new_author_path
+      paper = Paper.new
+	paper.title = "Data Ethics"
+	paper.venue = "HPI"
+	paper.year = "1997"
+	paper.authors << Author.new(first_name: "Marie", last_name: "Jarisch", homepage: "https://www.notion.so/")
+	expect(paper.authors.length).to eq(1)
   end
 end
 
